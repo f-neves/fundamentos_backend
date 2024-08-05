@@ -1,0 +1,31 @@
+name: postgres-pgadmin-dbeaver
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: fullstack_backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: wilglison.niky@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8089:80"
+    restart: always
+#    volumes:
+#      - ./pgadminStorage:/var/lib/pgadmin/storage/
+
+
+volumes:
+  postgres_data:

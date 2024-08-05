@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Adicionar Produto</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<header>
+		<a th:href="@{/produtos}" class="button">Produtos</a> 
+		<a th:href="@{/categorias}" class="button">Categorias</a> 
+		<a th:href="@{/tags}" class="button">Tags</a>
+		<h1>Produto - Adicionar</h1>
+	</header>
+	<form th:action="@{/produtos}" method="post">
+		<div>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome">
+		</div>
+		<div>
+			<label for="preco">Preço:</label>
+			<input type="number" id="preco"	name="preco">
+		</div>
+		<div>
+			<label for="categoria">Categoria:</label>
+			<input type="number" id="categoriaId"	name="categoriaId">
+		</div>
+		<div>
+			<label for="tags">Tags:</label> 
+			<input type="text" id="tags" placeholder="Ex: 1,2,3" name="tagsId">
+		</div>
+		<div>
+			<button type="submit">Adicionar Produto</button>
+		</div>
+	</form>
+</body>
+</html>

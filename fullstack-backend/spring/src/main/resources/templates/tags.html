@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Lista de Tags</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a th:href="@{/produtos}" class="button">Produtos</a>
+      <a th:href="@{/categorias}" class="button">Categorias</a>
+      <a th:href="@{/tags}" class="button">Tags</a>
+      <h1>Lista de Tags</h1>
+    </header>
+    <div th:if="${sucesso}" class="success-message">
+      <p th:text="${sucesso}"></p>
+    </div>
+    <div th:if="${erro}" class="erro-message">
+      <p th:text="${erro}"></p>
+    </div>
+   <div class="button-container">
+      <a th:href="@{/tags/adicionar}" class="button">Adicionar Nova Tag</a>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Editar</th>
+          <th>Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="tag : ${tags}">
+          <td th:text="${tag.id}" />
+          <td th:text="${tag.nome}" />
+          <td>
+          	<a th:href="@{/tags/editar?id={id}(id=${tag.id})}" class="button">editar</a>
+          </td>
+          <td>
+            <form th:action="@{/tags/deletar}" method="post" class="button-delete">
+              <input type="hidden" name="id" th:value="${tag.id}" />
+              <button type="submit" class="button">deletar</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

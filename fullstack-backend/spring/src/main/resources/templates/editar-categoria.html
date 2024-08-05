@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Categoria</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<header>
+	<a th:href="@{/produtos}" class="button">Produtos</a> 
+	<a th:href="@{/categorias}" class="button">Categorias</a> 
+	<a th:href="@{/tags}" class="button">Tags</a>
+    <h1>Editar Produto</h1>
+</header>
+<form th:action="@{/categorias/editar}" method="post">
+    <input type="hidden" id="id" name="id" th:value="${categoria.id}">
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" th:value="${categoria.nome}">
+    </div>
+    <div>
+        <button type="submit">Atualizar Tag</button>
+    </div>
+</form>
+</body>
+</html>
